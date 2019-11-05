@@ -6,7 +6,7 @@ body {
 }
 
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 label {
@@ -21,7 +21,7 @@ input[type="radio"] {
 header .dceg-logo {
   display: block;
   height: 100px;
-  background: url('/common/images/DCEG-logo.svg') no-repeat top left;
+  background: url("/common/images/DCEG-logo.svg") no-repeat top left;
 }
 
 header .logo:last-child {
@@ -92,9 +92,9 @@ footer ul li a {
 }
 
 .empty-table::after {
-  content: 'Paste Here';
+  content: "Paste Here";
   font-size: 60px;
-  color: #DDD;
+  color: #ddd;
   position: absolute;
   bottom: 35%;
   left: 30%;
@@ -107,7 +107,7 @@ footer ul li a {
 }
 
 .table-header {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 
 .table-responsive {
@@ -118,23 +118,21 @@ footer ul li a {
   margin-bottom: 0;
 }
 
-
 .input-table > thead > tr > th {
   text-align: center;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid #AAA;
+  border-bottom: 1px solid #aaa;
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
 .input-table > thead > tr > th {
-  border-top: 1px solid #DDD;
+  border-top: 1px solid #ddd;
 }
 
-
 .input-table > thead > tr > th:last-child {
-  border-right: 1px solid #DDD;
+  border-right: 1px solid #ddd;
 }
 
 .input-table > tbody > tr > td {
@@ -143,26 +141,24 @@ footer ul li a {
 }
 
 .output-table {
-  border-top: 1px solid #DDD;
+  border-top: 1px solid #ddd;
   border-bottom: none;
 }
 
-
 .output-table > thead > tr > th {
-  border-bottom: 1px solid #DDD;
-  border-right: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
   text-align: center;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 0;
   padding-right: 0;
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
 }
 
 .output-table > thead > tr > th:first-child {
-  border-left: 1px solid #DDD;
+  border-left: 1px solid #ddd;
 }
-
 
 .output-table > tbody > tr > td {
   padding-left: 2px;
@@ -171,26 +167,26 @@ footer ul li a {
 }
 
 table.dataTable.no-footer {
-  border-bottom: 1px solid #DDD
+  border-bottom: 1px solid #ddd;
 }
 
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
 table.dataTable thead .sorting_desc {
-    background : none;
+  background: none;
 }
-
 
 /* Default styles */
 .sidebar {
   padding: 16px 10px;
   border-radius: 2px;
-  background: linear-gradient(to bottom, #feffff 0%, #feffff 50%, #e7f3fa 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  background: linear-gradient(to bottom, #feffff 0%, #feffff 50%, #e7f3fa 100%)
+    repeat scroll 0 0 rgba(0, 0, 0, 0);
   box-shadow: 0 2px 4px 0 rgba(1, 90, 129, 0.4);
 }
 
 .blue {
-  color: #4B77BE;
+  color: #4b77be;
 }
 
 .grey {
@@ -198,7 +194,7 @@ table.dataTable thead .sorting_desc {
   padding-right: 2px !important;
   text-align: center;
   min-width: 90px;
-  background-color: #EEE;
+  background-color: #eee;
 }
 
 #description {
@@ -246,11 +242,11 @@ table.dataTable thead .sorting_desc {
 }
 
 .m-2 {
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .m-3 {
-  margin: .75rem;
+  margin: 0.75rem;
 }
 
 .min-width-200 {
@@ -266,7 +262,7 @@ table.dataTable thead .sorting_desc {
 }
 
 .mx-1 {
-  margin: 0 .25rem;
+  margin: 0 0.25rem;
 }
 
 /* Tablets */
@@ -309,7 +305,7 @@ table.dataTable thead .sorting_desc {
 
   footer {
     bottom: 0;
-    background: #EEE;
+    background: #eee;
   }
 
   footer .list-inline li {
@@ -326,54 +322,68 @@ table.dataTable thead .sorting_desc {
  * (C)Leanest CSS spinner ever
  */
 @keyframes spin {
-	to { transform: rotate(1turn); }
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 .loading {
-	position: absolute;
-	display: none;
-	width: 5em;
-	height: 5em;
+  position: absolute;
+  display: none;
+  width: 5em;
+  height: 5em;
   top: 50%;
   left: 50%;
-	font-size: 12px;
-	text-indent: 999em;
-	overflow: hidden;
-	animation: spin 1s infinite steps(8);
-  z-index:100;
+  font-size: 12px;
+  text-indent: 999em;
+  overflow: hidden;
+  animation: spin 1s infinite steps(8);
+  z-index: 100;
 }
 
 .loading:before,
 .loading:after,
 .loading > div:before,
 .loading > div:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 2.25em; /* (container width - part width)/2  */
-	width: .5em;
-	height: 1.5em;
-	border-radius: .2em;
-	background: #eee;
-	box-shadow: 0 3.5em #eee; /* container height - part height */
-	transform-origin: 50% 2.5em; /* container height / 2 */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2.25em; /* (container width - part width)/2  */
+  width: 0.5em;
+  height: 1.5em;
+  border-radius: 0.2em;
+  background: #eee;
+  box-shadow: 0 3.5em #eee; /* container height - part height */
+  transform-origin: 50% 2.5em; /* container height / 2 */
 }
 
 .loading:before {
-	background: #444;
+  background: #444;
 }
 
 .loading:after {
-	transform: rotate(-45deg);
-	background: #666;
+  transform: rotate(-45deg);
+  background: #666;
 }
 
 .loading > div:before {
-	transform: rotate(-90deg);
-	background: #999;
+  transform: rotate(-90deg);
+  background: #999;
 }
 
 .loading > div:after {
-	transform: rotate(-135deg);
-	background: #BBB;
+  transform: rotate(-135deg);
+  background: #bbb;
+}
+
+/* Remove controls from Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Remove controls from Safari and Chrome */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Removes leftover margin */
 }
