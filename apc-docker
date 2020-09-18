@@ -1,0 +1,37 @@
+pipeline {
+  environment {
+    registry = "nrizk83/apc-base-image"
+    registryCredential = 'docker-hub'
+    dockerImage = ''
+  }
+  agent any
+
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/nci-snow-cicd/nci-webtools-dceg-age-period-cohort.git'
+      }
+    }
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+    stage('Run docker image') {
+      steps{
+        sh "docker run -id --name APCUbuntuImage -p 10000:10000 $registry:$BUILD_NUMBER"
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+  }
+}
