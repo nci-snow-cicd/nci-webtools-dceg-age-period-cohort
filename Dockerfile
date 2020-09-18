@@ -12,7 +12,7 @@ RUN pip install flask rpy2==2.8.6
 RUN R -e "install.packages(c('ggplot2', 'jsonlite'), dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
 RUN cd /opt/ && \
-    git clone https://github.com/CBIIT/nci-webtools-dceg-age-period-cohort.git
+    git clone https://github.com/nci-snow-cicd/nci-webtools-dceg-age-period-cohort.git
 
 EXPOSE 10000
 
