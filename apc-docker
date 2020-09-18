@@ -12,6 +12,21 @@ pipeline {
         git 'https://github.com/nci-snow-cicd/nci-webtools-dceg-age-period-cohort.git'
       }
     }
+    stage('SonarQube Analysis') {
+	        steps {
+                	script {
+		        	    sh "/var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarCubeScanner/bin/sonar-scanner \
+		            	-Dsonar.host.url=http://ncias-d2583-c.nci.nih.gov:9000  \
+		            	-Dsonar.projectName=nci-webtools-dceg-age-period-cohort \
+		            	-Dsonar.projectVersion=1.0 \
+	    	        	-Dsonar.projectKey=nci-webtools-dceg-age-period-cohort \
+		            	-Dsonar.language=python \
+	    	        	-Dsonar.login=2bd9b9b28760e95bf52aaa0f98a047c2c87c8537 \
+	    	        	-Dsonar.sources=/var/jenkins_home/jobs/$JOB_NAME \
+	    	        	-Dsonar.sourceEncoding=UTF-8
+            		}
+	    	}
+	}
     stage('Building image') {
       steps{
         script {
