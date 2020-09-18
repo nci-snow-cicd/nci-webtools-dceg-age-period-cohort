@@ -23,7 +23,7 @@ pipeline {
 		            	-Dsonar.language=python \
 	    	        	-Dsonar.login=2bd9b9b28760e95bf52aaa0f98a047c2c87c8537 \
 	    	        	-Dsonar.sources=/var/jenkins_home/jobs/$JOB_NAME \
-	    	        	-Dsonar.sourceEncoding=UTF-8
+	    	        	-Dsonar.sourceEncoding=UTF-8"
             		}
 	    	}
 	}
