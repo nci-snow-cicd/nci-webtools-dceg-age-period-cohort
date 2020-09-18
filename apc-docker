@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "nrizk83/apc-base-image"
+    registry = "nrizk83/apc-ubuntu-image"
     registryCredential = 'docker-hub'
     dockerImage = ''
   }
