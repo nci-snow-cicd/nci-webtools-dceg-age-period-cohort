@@ -21,10 +21,13 @@ pipeline {
 		            	-Dsonar.projectVersion=1.0 \
 	    	        	-Dsonar.projectKey=nci-webtools-dceg-age-period-cohort \
 		            	-Dsonar.language=python \
-	    	        	-Dsonar.login=2bd9b9b28760e95bf52aaa0f98a047c2c87c8537 \
+	    	        	-Dsonar.login=328e557dae5a088b08ad6a3d41c4235112d119b0  \
 	    	        	-Dsonar.sources=/var/jenkins_home/jobs/$JOB_NAME \
 	    	        	-Dsonar.sourceEncoding=UTF-8"
             		}
+		office365ConnectorSend webhookUrl: 'https://outlook.office.com/webhook/6faa453a-84bf-4bfb-8a01-c0373d260d02@a5c2ab90-5b50-4606-9f1d-83c879f0a49f/IncomingWebhook/2bb9efbe59534841bc7f4ba1f8f787dd/4088b722-d5d7-4c04-b7af-4b2a5ea227cb',
+            	message: 'Application Code Scans [Completed](http://ncias-d2583-c.nci.nih.gov:9000/dashboard?id=nci-webtools-dceg-age-period-cohort).',
+            	status: 'Success'
 	    	}
 	}
     stage('Building image') {
@@ -32,11 +35,17 @@ pipeline {
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
+	office365ConnectorSend webhookUrl: 'https://outlook.office.com/webhook/6faa453a-84bf-4bfb-8a01-c0373d260d02@a5c2ab90-5b50-4606-9f1d-83c879f0a49f/IncomingWebhook/2bb9efbe59534841bc7f4ba1f8f787dd/4088b722-d5d7-4c04-b7af-4b2a5ea227cb',
+       	message: 'Docker Image has been built.',
+        status: 'Success'
       }
     }
     stage('Run docker image') {
       steps{
         sh "docker run -id --name APCUbuntuImage -p 10000:10000 $registry:$BUILD_NUMBER"
+	office365ConnectorSend webhookUrl: 'https://outlook.office.com/webhook/6faa453a-84bf-4bfb-8a01-c0373d260d02@a5c2ab90-5b50-4606-9f1d-83c879f0a49f/IncomingWebhook/2bb9efbe59534841bc7f4ba1f8f787dd/4088b722-d5d7-4c04-b7af-4b2a5ea227cb',
+        message: 'Docker Application Image has been [Deployed](http://ncias-d2583-c.nci.nih.gov:10000) and Running.',
+        status: 'Success'
       }
     }
     stage('Deploy Image') {
@@ -46,6 +55,9 @@ pipeline {
             dockerImage.push()
           }
         }
+	  office365ConnectorSend webhookUrl: 'https://outlook.office.com/webhook/6faa453a-84bf-4bfb-8a01-c0373d260d02@a5c2ab90-5b50-4606-9f1d-83c879f0a49f/IncomingWebhook/2bb9efbe59534841bc7f4ba1f8f787dd/4088b722-d5d7-4c04-b7af-4b2a5ea227cb',
+          message: 'Docker Image has been pushed to the Docker Registry.',
+          status: 'Success'
       }
     }
   }
